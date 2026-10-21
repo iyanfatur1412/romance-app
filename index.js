@@ -7,6 +7,9 @@ let cekBlokir = setInterval(function() {
     }
 })
 
+const audio = document.querySelector("audio");
+audio.play();
+
 const board = document.querySelector(".board");
 let next;
 let scene = 1;
@@ -146,7 +149,6 @@ Lopiuuu...`);
 }
 
 function scene6() {
-    const audio = document.querySelector("audio");
     board.innerHTML = elScene6();
     const btn = document.querySelector(".btn-send");
     btn.addEventListener("click", function(e) {
