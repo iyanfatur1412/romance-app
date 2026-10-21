@@ -1,0 +1,283 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Cascadia Mono', sans-serif;
+}
+
+.board {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: url(img/background.png);
+    background-size: cover;
+    overflow: hidden
+}
+
+
+
+/* Character */
+
+.board img {
+    width: 80%;
+    position: absolute;
+    opacity: 0;
+    transition: 1.6s;
+}
+
+.board .img-left img {
+    left: -100%;
+    bottom: -200px;
+}
+
+.board .img-right img {
+    right: -100%;
+    bottom: -200px;
+}
+
+.fromLeft {
+    transition: 1s;
+    animation: fromLeft 1.6s ease-in forwards;
+}
+
+.fromLeft2 {
+    transition: 1s;
+    animation: fromLeft2 1.6s ease-in forwards;
+}
+
+.fromRight {
+    animation: fromRight 1.6s ease-in forwards;
+}
+
+@keyframes fromLeft {
+    to {
+        left: -80px;
+        bottom: -150px;
+        opacity: 1;
+    }
+}
+
+@keyframes fromLeft2 {
+    to {
+        left: 0;
+        bottom: 0;
+        opacity: 1;
+    }
+}
+
+@keyframes fromRight {
+    to {
+        right: -80px;
+        bottom: -150px;
+        opacity: 1;
+    }
+}
+
+
+/* text */
+
+.board .buble-text {
+    max-width: 200px;
+    display: inline-block;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, .7);
+    position: absolute;
+    right: 30px;
+    top: 200px;
+    transition: .7s;
+}
+
+.buble-text span {
+    opacity: 0;
+    animation: fadeText .7s ease-in forwards;
+}
+
+@keyframes fadeText {
+    to {
+        opacity: 1;
+    }
+}
+
+.fadeOut {
+    opacity: 0;
+}
+
+
+/* Scene 3 */
+
+.col-maaf, .col-question {
+    margin: 20px auto;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(60px);
+    transition: .7s;
+}
+
+.col-maaf p, .col-question p {
+    display: inline-block;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+}
+
+.col-maaf p {
+    max-width: 70%;
+    background-color: rgba(255, 255, 255, .7);
+    font-size: 1.3rem;
+}
+
+.col-question {
+    max-width: 50%;
+    font-size: 1.2rem;
+    background-color: rgba(34, 137, 255, 0.7);
+    color: #fff;
+    border-radius: 20px;
+}
+
+.col-pilihan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    /* position: relative; */
+}
+
+.col-pilihan button {
+    width: 50%;
+    margin: auto;
+    display: inline-block;
+    appearance: none;
+    outline: none;
+    border: 3px solid #fff;
+    background-color: rgba(255, 0, 0);
+    border-radius: 20px;
+    padding: 20px;
+    font-size: 1.3rem;
+    color: #fff;
+    transition: .7s;
+    opacity: 0;
+    transform: translateY(60px);
+}
+
+.col-pilihan button.lopiu {
+    width: 50px;
+    padding: 5px;
+    border: 1px solid #fff;
+    font-size: .2rem;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    background-color: rgba(34, 137, 255, 0.7);
+}
+
+.activeScene3 {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+}
+
+
+
+/* Scene 4 */
+
+.title {
+    font-size: 1.8rem;
+    color: rgba(255, 0, 0);
+    text-align: center;
+    margin-top: 150px;
+    text-shadow: 2px 2px 4px #fff;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: .7s;
+}
+
+.slider {
+    width: 90%;
+    height: 60px;
+    border-radius: 20px;
+    border: 3px solid rgba(255, 0, 0);
+    background-color: #fff;
+    margin: 10px auto;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(100px);
+    transition: .7s;
+}
+
+.slider .value {
+    width: 0%;
+    height: 100%;
+    transform: skewX(20deg) scaleX(1.05);
+    background-color: rgba(255, 0, 0);
+    transition: .7s;
+}
+
+.activeScene4 {
+    opacity: 1;
+    transform: translateY(0px);
+}
+
+
+/* Scene 6 */
+.form textarea {
+    width: 75%;
+    height: 70vh;
+    display: block;
+    outline: none;
+    border: 5px solid #acacac;
+    border-radius: 20px;
+    margin: 50px auto 30px;
+    text-align: left;
+    padding: 20px;
+    font-size: 1rem;
+    color: #acacac;
+}
+
+.form button {
+    display: block;
+    margin: auto;
+    text-align: center;
+    padding: 15px 40px;
+    outline: none;
+    border: none;
+    background-color: rgba(34, 137, 255, 0.7);
+    border-radius: 10px;
+    transition: .7s;
+}
+
+.form button a {
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.form button:hover {
+    background-color: #080065;
+    transform: scale(1.2);
+}
+
+.blokir {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #000;
+    display: none;
+}
+
+.blokir h1 {
+    font-size: 2rem;
+    color: rgba(255, 0, 0);
+    text-align: center;
+    line-height: 50vh;
+}
+
+
+.activeBlokir {
+    display: block;
+}
