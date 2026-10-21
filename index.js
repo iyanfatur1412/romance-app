@@ -7,8 +7,33 @@ let cekBlokir = setInterval(function() {
     }
 })
 
+function preloadImages(...urls) {
+  urls.forEach(url => {
+    const img = new Image();
+    img.src = url; // Browser otomatis mendownload dan menyimpan ke cache
+  });
+}
+
+// Panggil fungsi saat halaman selesai dimuat agar tidak mengganggu performa awal
+window.addEventListener('load', () => {
+  preloadImages(
+    'https://github.com/iyanfatur1412/romance-app/blob/main/img/background.png?raw=true',
+    'https://github.com/iyanfatur1412/romance-app/blob/main/img/chara_scene_1.png?raw=true',
+    'https://github.com/iyanfatur1412/romance-app/blob/main/img/chara_scene_2.png?raw=true',
+    'https://github.com/iyanfatur1412/romance-app/blob/main/img/chara_scene_5.png?raw=true'
+  );
+});
+
 const audio = document.querySelector("audio");
-audio.play()
+const btnSpeaker = document.querySelector(".img-speaker img");
+
+btnSpeaker.addEventListener("click", function() {
+    if(audio.paused) {
+        audio.play();
+    } else {
+        audio.pause();
+    }
+})
 
 const board = document.querySelector(".board");
 let next;
@@ -171,14 +196,6 @@ function hapusBlokir() {
     const blokir = document.querySelector(".blokir");
     blokir.classList.remove("activeBlokir");
 }
-
-
-
-
-
-
-
-
 
 
 
